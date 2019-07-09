@@ -1,0 +1,40 @@
+[debug] [2019-07-09T14:31:22.680Z] ----------------------------------------------------------------------
+[debug] [2019-07-09T14:31:22.683Z] Command:       D:\Program Files\nodejs\node.exe C:\Users\steve\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only functions
+[debug] [2019-07-09T14:31:22.683Z] CLI Version:   7.0.2
+[debug] [2019-07-09T14:31:22.683Z] Platform:      win32
+[debug] [2019-07-09T14:31:22.683Z] Node Version:  v10.3.0
+[debug] [2019-07-09T14:31:22.684Z] Time:          Tue Jul 09 2019 21:31:22 GMT+0700 (Новосибирское стандартное время)
+[debug] [2019-07-09T14:31:22.684Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-07-09T14:31:22.702Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-07-09T14:31:22.703Z] > authorizing via signed-in user
+[debug] [2019-07-09T14:31:22.703Z] [iam] checking project memlang for permissions ["firebase.projects.get"]
+[debug] [2019-07-09T14:31:22.706Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/memlang:testIamPermissions  
+
+[debug] [2019-07-09T14:31:24.051Z] <<< HTTP RESPONSE 200
+[debug] [2019-07-09T14:31:24.053Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/memlang  
+ 
+[debug] [2019-07-09T14:31:25.234Z] <<< HTTP RESPONSE 200
+[info] +  functions: Using node@10 from host.
+[debug] [2019-07-09T14:31:25.243Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/1041692358779:getServerAppConfig  
+ 
+[debug] [2019-07-09T14:31:25.864Z] <<< HTTP RESPONSE 200
+[info] +  functions: Emulator started at http://localhost:5000
+[info] i  functions: Watching "D:\projects\my-app\functions" for Cloud Functions...
+[debug] [2019-07-09T14:31:26.594Z] Functions runtime initialized.
+[debug] [2019-07-09T14:31:26.595Z] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true}
+[debug] [2019-07-09T14:31:26.736Z] firebase-admin has been stubbed.
+[warn] !  TypeError: _onRequestWithOpts is not a function
+    at Object.httpsProvider._onRequestWithOpts (C:\Users\steve\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:278:24)
+    at Object.httpsProvider.onRequest (C:\Users\steve\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:283:34)
+    at Object.<anonymous> (D:\projects\my-app\functions\lib\index.js:7:38)
+    at Module._compile (internal/modules/cjs/loader.js:702:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+    at Module.load (internal/modules/cjs/loader.js:612:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+    at Module.require (internal/modules/cjs/loader.js:650:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+[warn] !  We were unable to load your functions code. (see above)
+   - It appears your code is written in Typescript, which must be compiled before emulation.
+   - You may be able to run "npm run build" in your functions directory to resolve this.

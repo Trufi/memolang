@@ -1,5 +1,6 @@
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
+import { Dispatch, LoginAction, LogoutAction } from './type';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAtaxChdsXsafnwlDz8L5qbyKopnKMCrno',
@@ -43,4 +44,36 @@ export const login = () => {
       // ...
       console.log(errorCode, errorMessage, email, credential);
     });
+};
+
+export const logout = () => {
+  return firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      console.log('Successful sign out');
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+export const subscribeStateChange = (dispatch: Dispatch) => {
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      const { displayName, photoURL } = user;
+
+      const action: LoginAction = {
+        type: 'login',
+        user: {
+          name: displayName || 'anon',
+          photo: photoURL || '',
+        },
+      };
+      dispatch(action);
+    } else {
+      const action: LogoutAction = { type: 'logout' };
+      dispatch(action);
+    }
+  });
 };

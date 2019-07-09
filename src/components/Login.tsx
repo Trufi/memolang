@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { login } from './firebase';
+import { login } from '../firebase';
 
 interface AuthState {
   name: string;

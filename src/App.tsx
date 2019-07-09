@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useReducer, useEffect } from 'react';
 import './App.css';
-import { Auth } from './Auth';
+import { Auth } from './components/Auth';
+import { State } from './type';
+import { reducer } from './reducers';
+import { subscribeStateChange } from './firebase';
+
+const initialState: State = {
+  user: {
+    signIn: false,
+    name: '',
+    photo: '',
+  },
+};
 
 export const App: React.FC = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    subscribeStateChange(dispatch);
+  }, []);
+
   return (
     <div className='App'>
-      <Auth />
+      <Auth dispatch={dispatch} user={state.user} />
     </div>
   );
 };

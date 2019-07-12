@@ -2,6 +2,7 @@ export interface UserState {
   signIn: boolean;
   name: string;
   photo: string;
+  token: string;
 }
 
 export interface State {
@@ -13,6 +14,7 @@ export interface LoginAction {
   user: {
     name: string;
     photo: string;
+    token: string;
   };
 }
 

@@ -1,23 +1,26 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
+import * as express from 'express';
 import * as cors from 'cors';
 import { translateText } from './translate';
+import { validateFirebaseIdToken } from './bearer';
 
 admin.initializeApp();
 
-const corsHandler = cors({ origin: true });
+const app = express();
 
-export const translate = functions.https.onRequest((req, res) => {
-  return corsHandler(req, res, async () => {
-    if (typeof req.query.t !== 'string' || req.query.t.length < 3) {
-      res.sendStatus(400);
-      return;
-    }
+app.use(cors({ origin: true }));
+app.use(validateFirebaseIdToken);
 
-    const text = decodeURIComponent(req.query.t);
+app.get('/:text', async (req, res) => {
+  if (typeof req.params.text !== 'string' || req.params.text.length < 3) {
+    res.sendStatus(400);
+    return;
+  }
 
-    const translations = await translateText(text);
-
-    res.send(JSON.stringify(translations));
-  });
+  const text = decodeURIComponent(req.params.text);
+  const translations = await translateText(text);
+  res.send(JSON.stringify(translations));
 });
+
+export const translate = functions.https.onRequest(app);

@@ -11,6 +11,7 @@ const initialState: State = {
     signIn: false,
     name: '',
     photo: '',
+    token: '',
   },
 };
 
@@ -24,7 +25,7 @@ export const App: React.FC = () => {
   return (
     <div className='App'>
       <Auth dispatch={dispatch} user={state.user} />
-      <Translator />
+      {state.user.signIn && <Translator authToken={state.user.token} />}
     </div>
   );
 };

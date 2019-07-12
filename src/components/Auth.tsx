@@ -9,7 +9,11 @@ export interface Props {
 
 const SignInStatus = ({ user: { name, photo } }: Props) => {
   return (
-    <div>
+    <div
+      style={{
+        lineHeight: '30px',
+      }}
+    >
       <img
         src={photo}
         alt={name}
@@ -17,10 +21,24 @@ const SignInStatus = ({ user: { name, photo } }: Props) => {
           width: '30px',
           height: '30px',
           borderRadius: '15px',
+          verticalAlign: 'middle',
         }}
-      />
-      {name}
-      <button onClick={() => logout()}>logOut</button>
+      />{' '}
+      <span
+        style={{
+          verticalAlign: 'middle',
+        }}
+      >
+        {name}
+      </span>{' '}
+      <button
+        style={{
+          verticalAlign: 'middle',
+        }}
+        onClick={() => logout()}
+      >
+        Logout
+      </button>
     </div>
   );
 };

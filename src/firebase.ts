@@ -27,7 +27,7 @@ export const login = () => {
         // The signed-in user info.
         var user = result.user;
         // ...
-        console.log(token, user);
+        console.log('signInWithPopup', token, user);
         if (user) {
           return user.displayName;
         }
@@ -62,15 +62,17 @@ export const subscribeStateChange = (dispatch: Dispatch) => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       const { displayName, photoURL } = user;
-
-      const action: LoginAction = {
-        type: 'login',
-        user: {
-          name: displayName || 'anon',
-          photo: photoURL || '',
-        },
-      };
-      dispatch(action);
+      user.getIdToken().then((token) => {
+        const action: LoginAction = {
+          type: 'login',
+          user: {
+            name: displayName || 'anon',
+            photo: photoURL || '',
+            token,
+          },
+        };
+        dispatch(action);
+      });
     } else {
       const action: LogoutAction = { type: 'logout' };
       dispatch(action);

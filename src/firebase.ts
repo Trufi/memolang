@@ -1,5 +1,7 @@
 import * as firebase from 'firebase/app';
+import 'firebase/firestore';
 import 'firebase/auth';
+
 import { Dispatch, LoginAction, LogoutAction } from './type';
 
 const firebaseConfig = {
@@ -61,7 +63,7 @@ export const logout = () => {
 export const subscribeStateChange = (dispatch: Dispatch) => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      const { displayName, photoURL } = user;
+      const { displayName, photoURL, uid } = user;
       user.getIdToken().then((token) => {
         const action: LoginAction = {
           type: 'login',
@@ -69,6 +71,7 @@ export const subscribeStateChange = (dispatch: Dispatch) => {
             name: displayName || 'anon',
             photo: photoURL || '',
             token,
+            uid,
           },
         };
         dispatch(action);
@@ -78,4 +81,26 @@ export const subscribeStateChange = (dispatch: Dispatch) => {
       dispatch(action);
     }
   });
+};
+
+const db = firebase.firestore();
+
+export const addWord = (en: string, ru: string, user: string) => {
+  db.collection('dictionary').add({
+    en,
+    ru,
+    user,
+  });
+};
+
+export const getWords = (user: string) => {
+  return db
+    .collection('dictionary')
+    .where('user', '==', user)
+    .get()
+    .then((response) => {
+      const result: any[] = [];
+      response.forEach((doc) => result.push(doc.data()));
+      return result;
+    });
 };

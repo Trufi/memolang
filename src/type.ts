@@ -3,6 +3,7 @@ export interface UserState {
   name: string;
   photo: string;
   token: string;
+  uid: string;
 }
 
 export interface State {
@@ -15,6 +16,7 @@ export interface LoginAction {
     name: string;
     photo: string;
     token: string;
+    uid: string;
   };
 }
 

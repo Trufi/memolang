@@ -12,6 +12,7 @@ export function reducer(state: State, action: Action): State {
           name: '',
           photo: '',
           token: '',
+          uid: '',
         },
       };
     default:
@@ -19,7 +20,7 @@ export function reducer(state: State, action: Action): State {
   }
 }
 
-function login(state: State, { user: { name, photo, token } }: LoginAction): State {
+function login(state: State, { user: { name, photo, token, uid } }: LoginAction): State {
   return {
     ...state,
     user: {
@@ -27,6 +28,7 @@ function login(state: State, { user: { name, photo, token } }: LoginAction): Sta
       name,
       photo,
       token,
+      uid,
     },
   };
 }

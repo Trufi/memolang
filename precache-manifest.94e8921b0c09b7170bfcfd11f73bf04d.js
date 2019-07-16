@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "294a8f8b399eb620cb6b269a9a02b8c6",
+    "revision": "ba9ce060c9a4d274efd64c9fe52a9c17",
     "url": "/memolang/index.html"
   },
   {
-    "revision": "9656ba58c2c316866f82",
+    "revision": "623dde7961a64142e44e",
     "url": "/memolang/static/css/main.9b79af83.chunk.css"
   },
   {
-    "revision": "7536cf196ad92c4e51b9",
-    "url": "/memolang/static/js/2.11050585.chunk.js"
+    "revision": "1d13d65a1f008cca8b86",
+    "url": "/memolang/static/js/2.e64327c5.chunk.js"
   },
   {
-    "revision": "9656ba58c2c316866f82",
-    "url": "/memolang/static/js/main.e677872c.chunk.js"
+    "revision": "623dde7961a64142e44e",
+    "url": "/memolang/static/js/main.ef1423cb.chunk.js"
   },
   {
     "revision": "c13bdf63035a27a0ca8d",

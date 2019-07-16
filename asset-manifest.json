@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/memolang/static/css/main.9b79af83.chunk.css",
-    "main.js": "/memolang/static/js/main.e677872c.chunk.js",
-    "main.js.map": "/memolang/static/js/main.e677872c.chunk.js.map",
+    "main.js": "/memolang/static/js/main.ef1423cb.chunk.js",
+    "main.js.map": "/memolang/static/js/main.ef1423cb.chunk.js.map",
     "runtime~main.js": "/memolang/static/js/runtime~main.ddfdec06.js",
     "runtime~main.js.map": "/memolang/static/js/runtime~main.ddfdec06.js.map",
-    "static/js/2.11050585.chunk.js": "/memolang/static/js/2.11050585.chunk.js",
-    "static/js/2.11050585.chunk.js.map": "/memolang/static/js/2.11050585.chunk.js.map",
+    "static/js/2.e64327c5.chunk.js": "/memolang/static/js/2.e64327c5.chunk.js",
+    "static/js/2.e64327c5.chunk.js.map": "/memolang/static/js/2.e64327c5.chunk.js.map",
     "index.html": "/memolang/index.html",
-    "precache-manifest.06d617d46f75579464d20e01ff2ca25f.js": "/memolang/precache-manifest.06d617d46f75579464d20e01ff2ca25f.js",
+    "precache-manifest.94e8921b0c09b7170bfcfd11f73bf04d.js": "/memolang/precache-manifest.94e8921b0c09b7170bfcfd11f73bf04d.js",
     "service-worker.js": "/memolang/service-worker.js",
     "static/css/main.9b79af83.chunk.css.map": "/memolang/static/css/main.9b79af83.chunk.css.map"
   }
